@@ -2,6 +2,10 @@
   margin-top: 150px;
 }
 
+.component--red {
+  background-color: red !important;
+}
+
 .component--hide {
     opacity: 0;
 }

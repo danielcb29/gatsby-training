@@ -17,6 +17,9 @@ class ScrollAnimation {
 
     sceneDefinition(component) {
         console.log('Inside scene def');
+        component.addEventListener('click', function() {
+            component.classList.toggle('component--red');
+        })
         new ScrollMagic.Scene({triggerElement: component})
             .triggerHook(0)
             .on("enter", () => {
