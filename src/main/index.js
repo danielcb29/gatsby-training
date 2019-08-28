@@ -6,12 +6,12 @@ class IndexPage {
 if (typeof document !== 'undefined') {
     document.addEventListener('DOMContentLoaded', function() {
         
-        setTimeout(() => {
+        // setTimeout(() => {
             new IndexPage();
             // Instance the page component here
             
             new ColorBoxComponent();
-        }, 2000);
+        // }, 2000);
     
     });
 }
