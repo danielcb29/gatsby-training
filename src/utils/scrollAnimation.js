@@ -11,16 +11,20 @@ class ScrollAnimation {
     }
 
     buildScenes() {
+        console.log('Inside build scene');
         Array.from(this.components).forEach(component => this.sceneDefinition(component));
     }
 
     sceneDefinition(component) {
+        console.log('Inside scene def');
         new ScrollMagic.Scene({triggerElement: component})
             .triggerHook(0)
             .on("enter", () => {
+                console.log('magic enter');
                 this.animationClassToggle(component, this.animationClassNameOut, this.animationClassNameIn);
             })
             .on("leave", () => {
+                console.log('magic leave');
                 this.animationClassToggle(component, this.animationClassNameIn, this.animationClassNameOut);
             })
             .addTo(this.controller);
