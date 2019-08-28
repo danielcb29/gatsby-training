@@ -1,16 +1,17 @@
-import { ScrollAnimation } from '../utils/scrollAnimation'
 import { ColorBoxComponent } from '../components/colorbox/colorbox'
 
 class IndexPage {
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    setTimeout(() => {
-        new IndexPage();
-        // Instance the page component here
+if (typeof document !== 'undefined') {
+    document.addEventListener('DOMContentLoaded', function() {
         
-        new ColorBoxComponent();
-    }, 2000);
-
-});
+        setTimeout(() => {
+            new IndexPage();
+            // Instance the page component here
+            
+            new ColorBoxComponent();
+        }, 2000);
+    
+    });
+}

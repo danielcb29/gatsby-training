@@ -11,24 +11,25 @@ class ScrollAnimation {
     }
 
     buildScenes() {
-        Array.from(this.components).forEach((component , id) => {
-                console.log('Scrolling', this.className, this.animationClassNameIn)
-                new ScrollMagic.Scene({triggerElement: `#trigger-${id}`})
-                .triggerHook(0)
-                .on("enter", () => {
-                    component.classList.remove(this.animationClassNameOut);
-                    component.classList.add(this.animationClassNameIn);
-                })
-                .on("leave", () => {
-                    component.classList.remove(this.animationClassNameIn);
-                    component.classList.add(this.animationClassNameOut);
-                })
-                .addTo(this.controller); 
-            }
-        )
+        Array.from(this.components).forEach(component => this.sceneDefinition(component));
     }
 
-    
+    sceneDefinition(component) {
+        new ScrollMagic.Scene({triggerElement: component})
+            .triggerHook(0)
+            .on("enter", () => {
+                this.animationClassToggle(component, this.animationClassNameOut, this.animationClassNameIn);
+            })
+            .on("leave", () => {
+                this.animationClassToggle(component, this.animationClassNameIn, this.animationClassNameOut);
+            })
+            .addTo(this.controller);
+    }
+
+    animationClassToggle(component, removeClass, addClass) {
+        component.classList.remove(removeClass);
+        component.classList.add(addClass);
+    }
 
 }
 
@@ -49,7 +50,7 @@ Array.from(this.components).forEach(component => {
                 // .setPin(`.${className}`) // pins the element for the the scene's duration
                 .addTo(this.controller); // assign the scene to the controller
             }
-        ) 
+        )
         */
 
 
@@ -85,7 +86,7 @@ initScrollListener() {
             console.log('Animating my friend', component);
             // component.addClass(animatedClass);
         }
-        
+
     }
 
  */

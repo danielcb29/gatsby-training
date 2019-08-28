@@ -3,7 +3,7 @@ import { ColorBox } from "../components/colorbox/colorbox.jsx"
 import '../main/index.js'
 
 const Index = () => {
-    const numberOfBoxes = 10;
+    const numberOfBoxes = 100;
 
     return (
         <div className="index">
